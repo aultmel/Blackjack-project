@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<nav>
+
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/rules" target="_blank">Rules</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login">Log in</a></li>
+        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+    </ul>
+    <h1 th:text="${winOrLoseMessage}"></h1>
+</nav>
+
+<!--<p th:text="'You have picked ' + ${level} + ' gameplay and you have bet $' + ${tempBet} + '!'"></p>-->
+<p>This is the dealer's full hand:</p>
+<ul >
+    <li th:each="card : ${dealerHand}" th:text="${card}"></li>
+</ul><br>
+<p th:text="'Hand value: ' + ${dealerHandValue}"></p>
+<p>Your hand is:</p>
+<ul >
+    <li th:each="card : ${playerHand}" th:text="${card}"></li>
+</ul><br>
+<p th:text="'Hand value: ' + ${playerHandValue}"></p>
+
+
+<p th:text="${message}"></p>
+<p th:text="${moneyMessage}"></p>
+<a href="/free/select">Play again</a>
+
+</body>
+</html>

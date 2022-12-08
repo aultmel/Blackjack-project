@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Blackjack</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label>Username
+            <input class="form-control" th:field="${registerFormDTO.username}" />
+        </label>
+        <p class="error" th:errors="${registerFormDTO.username}" style="color: red;"></p>
+    </div>
+    <div class="form-group">
+        <label>Password
+            <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
+        </label>
+        <p class="error" th:errors="${registerFormDTO.password}" style="color: red;"></p>
+    </div>
+    <div class="form-group">
+        <label>Verify Password
+            <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
+        </label>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Register" />
+</form>
+<p>Already have an account? <a href="/login">Log in</a></p>
+<a href="/free/select">Play without an account</a>
+
+</body>
+</html>

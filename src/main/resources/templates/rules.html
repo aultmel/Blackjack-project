@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<header th:replace="fragments :: header"></header>
+
+<p>Let's play some Blackjack! The rules are simple: Start out with 2 cards, and you want to get the sum of the cards as close as possible to 21 without going over.
+<br>Aces count as 1 or 11 (if ace being 11 causes the sum to go over 21, then ace would count as 1), face cards count as 10, and the rest of the numbers count as
+<br>face value. The goal is to get closer to 21 without going over than the dealer. At the beginning of each turn, you wager a certain amount of money. If you lose,
+<br>it goes to the dealer. If you win, the dealer gives it to you. With each turn, you can choose to stand, which means not get a new card, or you can hit, which
+<br>means you get a new card. If you choose to stand, the dealer will then take his turn and if your hand is closer to 21 than the dealer's hand or the dealer's
+<br>hand is more than 21, you win. If you choose to hit and your hand goes over 21, you go bust and the dealer wins. If you tie with the dealer, no one collects any money.
+    <br>You will automatically start out at level 0 and have $100. Each dollar earned (truncated) contributes a point to your next level. You need 1000 points
+    <br>to advance to the next level, with 10 being the highest level. For each level reached, you will always have a minimum of 10 times the level in dollars.
+    <br>For example, if you are level 2, you will always have a minimum of $20. If you are level 10, you will always have a minimum of $100.
+</p>
+
+
+</body>
+</html>

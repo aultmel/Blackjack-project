@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<nav>
+
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/rules" target="_blank">Rules</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login">Log in</a></li>
+        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+    </ul>
+    <h1>Free Play: Select Bet</h1>
+</nav>
+
+
+<p th:text="'You currently have $' + ${money}"></p>
+<form method="post">
+    <div class="form-group">
+        <label>How much money would you like to bet?
+            <input required type="number" name="tempBet" min="0.01" step="0.01">
+        </label>
+    </div>
+    <p th:text="${error}" style="color: red;"></p>
+    <div class="form-group">
+        <input type="submit" value="Bet" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>

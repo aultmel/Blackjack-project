@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<nav>
+
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/rules" target="_blank">Rules</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login">Log in</a></li>
+        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+    </ul>
+    <h1>Free Play: Your Turn</h1>
+</nav>
+
+
+<!--<p th:text="'You have picked ' + ${level} + ' gameplay and you have bet $' + ${tempBet} + '!'"></p>-->
+<p>The dealer's hand consists of two cards, but you can only see one:</p>
+<p th:text="${dealerHandFirstCard}"></p><br>
+<p th:text="'Hand value: ' + ${dealerHandValue}"></p>
+<p>Your hand is:</p>
+<ul >
+    <li th:each="card : ${playerHand}" th:text="${card}"></li>
+</ul><br>
+<p th:text="'Hand value: ' + ${playerHandValue}"></p>
+<form method="post">
+    <div class="form-group">
+        <!--<select required name="choice">
+            <option value="hit">Hit (draw a card)</option>
+            <option value="stand">Stand (your turn is over)</option>
+        </select>-->
+        <label>Hit
+            <input required checked type="radio" name="choice" value="hit">
+        </label>
+        <br>
+        <label>Stand
+            <input type="radio" name="choice" value="stand">
+        </label>
+    </div>
+    <div class="form-group" th:if="${playerHandValue < 21}">
+        <input type="submit" value="Play" class="btn btn-success">
+    </div>
+    <div class="form-group" th:if="${playerHandValue >= 21}">
+        <input type="submit" value="End turn" class="btn btn-success">
+    </div>
+</form>
+
+
+</body>
+</html>
