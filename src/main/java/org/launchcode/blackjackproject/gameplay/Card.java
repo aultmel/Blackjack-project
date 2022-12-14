@@ -110,6 +110,7 @@ public class Card {
         return "Joker";
     }
 
+
     public String cardName() {
         if (suit == JOKER) {
             if (rank == 1) {

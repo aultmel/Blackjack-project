@@ -19,7 +19,7 @@ import java.util.Optional;
 public class FreeplayController {
 
     private static Deck deck = new Deck();
-    private static double tempBet;
+    private static int tempBet;
     private static Hand playerHand = new Hand();
     private static Hand dealerHand = new Hand();
     private static boolean isNewGame = true;
@@ -32,10 +32,10 @@ public class FreeplayController {
     }
 
     @PostMapping("select")
-    public String processLevelAndBetSelect(Model model, @RequestParam double tempBet) {
+    public String processLevelAndBetSelect(Model model, @RequestParam int tempBet) {
         if (tempBet > this.money) {
             model.addAttribute("error", "You don\'t have enough money for that!");
-            return "free/select";
+            return "redirect:/free/select";
         }
         else {
             this.tempBet = tempBet;
@@ -90,7 +90,12 @@ public class FreeplayController {
             }
             else {
                 model.addAttribute("message", "Sorry, the dealer got you!");
-                this.money -= tempBet;
+                if (tempBet == this.money) {
+                    this.money = 1;
+                }
+                else {
+                    this.money -= tempBet;
+                }
                 model.addAttribute("winOrLoseMessage", "Better luck next time!");
             }
             String moneyMessage = "You now have $" + this.money;

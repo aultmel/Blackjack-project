@@ -22,10 +22,10 @@ public class User extends AbstractEntity {
     private int level = 0;
 
 
-    private double money = 100;
+    private int money = 100;
 
     @PositiveOrZero
-    private double totalMoneyEarned;
+    private int totalMoneyEarned;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -85,11 +85,11 @@ public class User extends AbstractEntity {
         this.level = level;
     }
 
-    public double getMoney() {
+    public int getMoney() {
         return money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(int money) {
         this.money = money;
     }
 
@@ -97,11 +97,11 @@ public class User extends AbstractEntity {
         this.username = username;
     }
 
-    public double getTotalMoneyEarned() {
+    public int getTotalMoneyEarned() {
         return totalMoneyEarned;
     }
 
-    public void setTotalMoneyEarned(double totalMoneyEarned) {
+    public void setTotalMoneyEarned(int totalMoneyEarned) {
         this.totalMoneyEarned = totalMoneyEarned;
     }
 

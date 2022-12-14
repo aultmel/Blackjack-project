@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Optional;
 
 @Controller
@@ -26,7 +24,7 @@ public class PlayController {
     private Integer userId;
 
     private static Deck deck = new Deck();
-    private static double tempBet;
+    private static int tempBet;
     private static String level;
     private static Hand playerHand = new Hand();
     private static Hand dealerHand = new Hand();
@@ -106,48 +104,48 @@ public class PlayController {
                 String moneyMessage = "";
                 if (user.getMoney() == tempBet) {
                     if (user.getLevel() == 0) {
-                        user.setMoney(0.01);
-                        moneyMessage = "You now have $0.01";
+                        user.setMoney(1);
+                        moneyMessage = "You now have $1";
                     }
                     else if (user.getLevel() == 1) {
                         user.setMoney(10);
-                        moneyMessage = "You now have $10.00";
+                        moneyMessage = "You now have $10";
                     }
                     else if (user.getLevel() == 2) {
                         user.setMoney(20);
-                        moneyMessage = "You now have $20.00";
+                        moneyMessage = "You now have $20";
                     }
                     else if (user.getLevel() == 3) {
                         user.setMoney(30);
-                        moneyMessage = "You now have $30.00";
+                        moneyMessage = "You now have $30";
                     }
                     else if (user.getLevel() == 4) {
                         user.setMoney(40);
-                        moneyMessage = "You now have $40.00";
+                        moneyMessage = "You now have $40";
                     }
                     else if (user.getLevel() == 5) {
                         user.setMoney(50);
-                        moneyMessage = "You now have $50.00";
+                        moneyMessage = "You now have $50";
                     }
                     else if (user.getLevel() == 6) {
                         user.setMoney(60);
-                        moneyMessage = "You now have $60.00";
+                        moneyMessage = "You now have $60";
                     }
                     else if (user.getLevel() == 7) {
                         user.setMoney(70);
-                        moneyMessage = "You now have $70.00";
+                        moneyMessage = "You now have $70";
                     }
                     else if (user.getLevel() == 8) {
                         user.setMoney(80);
-                        moneyMessage = "You now have $80.00";
+                        moneyMessage = "You now have $80";
                     }
                     else if (user.getLevel() == 9) {
                         user.setMoney(90);
-                        moneyMessage = "You now have $90.00";
+                        moneyMessage = "You now have $90";
                     }
                     else if (user.getLevel() == 10) {
                         user.setMoney(100);
-                        moneyMessage = "You now have $100.00";
+                        moneyMessage = "You now have $100";
                     }
 
                 }
@@ -176,20 +174,20 @@ public class PlayController {
     }
 
     @PostMapping("select")
-    public String processLevelAndBetSelect(Model model, @RequestParam double tempBet, @RequestParam String level) {
+    public String processLevelAndBetSelect(Model model, @RequestParam int tempBet, @RequestParam String level) {
         Optional<User> result = userRepository.findById(userId);
         User user = result.get();
         if (tempBet > user.getMoney()) {
             model.addAttribute("error", "You don\'t have enough money for that!");
-            return "play/select";
+            return "redirect:/play/select";
         }
         else if (level.equals("medium") && tempBet < 100) {
             model.addAttribute("error", "Minimum bet for medium is $100");
-            return "play/select";
+            return "redirect:/play/select";
         }
         else if (level.equals("hard") && tempBet < 200) {
             model.addAttribute("error", "Minimum bet for hard is $200");
-            return "play/select";
+            return "redirect:/play/select";
         }
         else {
             this.tempBet = tempBet;
