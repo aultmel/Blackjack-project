@@ -100,7 +100,13 @@ public class PlayController {
                 }
                 user.setTotalMoneyEarned(user.getTotalMoneyEarned() + tempBet);
                 userRepository.save(user);
-                String moneyMessage = "You now have $" + user.getMoney() + ", and you have earned " + tempBet + " points to your next level!";
+                String moneyMessage = "";
+                if (user.getLevel() < 10) {
+                    moneyMessage = "You now have $" + user.getMoney() + ", and you have earned " + tempBet + " points to your next level!";
+                }
+                else {
+                    moneyMessage = "You now have $" + user.getMoney() + "!";
+                }
                 model.addAttribute("moneyMessage", moneyMessage);
                 model.addAttribute("winOrLoseMessage", "Congratulations!");
             }
