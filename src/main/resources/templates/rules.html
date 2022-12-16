@@ -1,19 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body id="rules-page">
 
-<header th:replace="fragments :: header"></header>
+<h1 id="rules-heading">Blackjack Rules</h1>
 
-<p>Let's play some Blackjack! The rules are simple: Start out with 2 cards, and you want to get the sum of the cards as close as possible to 21 without going over.
-<br>Aces count as 1 or 11 (if ace being 11 causes the sum to go over 21, then ace would count as 1), face cards count as 10, and the rest of the numbers count as
-<br>face value. The goal is to get closer to 21 without going over than the dealer. At the beginning of each turn, you wager a certain amount of money. If you lose,
-<br>it goes to the dealer. If you win, the dealer gives it to you. With each turn, you can choose to stand, which means not get a new card, or you can hit, which
-<br>means you get a new card. If you choose to stand, the dealer will then take his turn and if your hand is closer to 21 than the dealer's hand or the dealer's
-<br>hand is more than 21, you win. If you choose to hit and your hand goes over 21, you go bust and the dealer wins. If you tie with the dealer, no one collects any money.
-    <br>You will automatically start out at level 0 and have $100. Each dollar earned (truncated) contributes a point to your next level. You need 1000 points
-    <br>to advance to the next level, with 10 being the highest level. For each level reached, you will always have a minimum of 10 times the level in dollars.
-    <br>For example, if you are level 2, you will always have a minimum of $20. If you are level 10, you will always have a minimum of $100.
+<h4>Object of the Game</h4>
+<p class="rules-p">
+    The goal is to get your hand total as close to 21 without going over. The player wants to get closer to 21 than the dealer.
+</p>
+
+<h4>The Deck and Card Values</h4>
+<p class="rules-p">
+    A standard deck of 52 cards (not including Jokers) is used here. Each card has a value, which is based on rank. Face cards are 10 and any number card is
+    its own value. Aces count as either 1 or 11, depending on whether 11 would make the hand total go over 21. For example, if your hand had an ace and a 6,
+    then the total would be 17, because ace being 11 does not make the total go over 21. But if a 5 was added to that hand, ace being 11 would make the hand
+    total be 22, so the ace would count as 1, bringing the hand total down to 12.
+</p>
+
+<h4>Betting</h4>
+<p class="rules-p">
+    The player must make a bet to play the game. Players cannot bet more than they have, and they must bet at least $1. The player will always have
+    at least $1 in their account so they can always play.
+</p>
+
+<h4>Gameplay</h4>
+<p class="rules-p">
+    The dealer will deal out two cards to each player. The player's cards will be dealt out faceup. However, until the player's turn is over, only one of the
+    dealer's cards will be shown. If the player is dealt an ace and a face card, their turn is over, because their hand value is already 21. If the player's
+    hand value is less than 21, then the player will be asked to "hit" or "stand". If the player chooses to "hit", they will be dealt another card. If the player
+    chooses to "stand," their turn is over and the dealer will take their turn. The dealer will then turn their other card over. If the dealer's hand value is
+    less than the player's hand value and the player's hand value is less than 21, then the dealer will draw. If the player's hand value is over 21, the dealer
+    will not draw. The game will end.
+</p>
+
+<h4>Winning</h4>
+<p class="rules-p">
+    If the player's hand value is closer to 21 without going over than the dealer's, then the player wins. If the dealer's hand value is over 21 but the player's
+    hand value is less than or equal to 21, then the player wins. If the player and the dealer have the same hand value, then the dealer wins. If the player's
+    hand value is over 21, then the dealer wins. If the player wins, they will add the money that they bet onto their previous total. If the dealer wins, the
+    money that the player bet will be removed from their previous total.
+</p>
+
+<h4>Player Level</h4>
+<p class="rules-p">
+    Each player who makes an account will have a level. These levels go from 0-10. Each new player always starts out at level 0. When a player plays a game and
+    wins money, the money that is won will also be converted into points toward the next level. Once the player has won a total of $1000, they will have 1000
+    points and will be promoted to level 1. Once they have won a total of $2000, they will have a total of 2000 points and will be promoted to level 2, and so on.
+    This means that after each level, it takes 1000 points to get to the next level. Once they reach level 10, they cannot level up anymore. If they are at level
+    0, they will always have at least $1 in their account. If they are at level 1, they will always have at least $10 in their account. If they are at level 2,
+    they will always have at least $20 in their account, and so on. Once they reach level 10, they will always have at least $100 in their account.
+    When they lose money, this will not affect their points to the next level. They can only gain points to the next level.
+ </p>
+
+<h4>Gameplay Level</h4>
+<p class="rules-p">
+    If a player has an account, they will be prompted to select a level of gameplay when betting. They can choose between easy, medium, and hard. If they choose
+    easy, the minimum bet must be $1 (the player will always have at least $1 in their account, so they can always play the easy level). On the easy level,
+    if they win, the player will only get the amount of money they bet as points to the next level. So, if they win $100 in a game, they will get 100 points toward
+    the next level. If they choose medium, the minimum bet must be $100. On the medium level, if they win, the player will still get the same amount of money
+    that they bet, but they will get double the amount of points toward the next level. So, if they win $100 in a game, they will get 200 points toward the next
+    level. If they choose hard, the minimum bet must be $200. On the hard level, if they win, the player will still get the same amount of money
+    that they bet, but they will get triple the amount of points toward the next level. So, if they win $100 in a game, they will get 300 points toward the next
+    level.
 </p>
 
 

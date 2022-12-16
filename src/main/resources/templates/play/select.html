@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body id="play-select-page">
 
 <nav>
 
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/rules" target="_blank">Rules</a></li>
-        <li class="nav-item"><a class="nav-link" th:href="'/play/profile?userId=' + ${userId}">Profile</a></li>
-        <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
+        <li class="nav-item"><a class="btn btn-outline-dark" href="/rules" target="_blank">Rules</a></li>
+        <li class="nav-item"><a class="btn btn-outline-dark" th:href="'/play/profile?userId=' + ${userId}">Profile</a></li>
+        <li class="nav-item"><a class="btn btn-outline-dark" href="/logout">Log out</a></li>
     </ul>
-    <h1>Select Level and Bet</h1>
-</nav>
 
+</nav>
+<h1>Select Level and Bet</h1>
 <p th:text="'You currently have $' + ${userMoney}"></p>
 <form method="post">
     <div class="form-group">
@@ -31,7 +31,7 @@
     </div>
     <p th:text="${error}" style="color: red;"></p>
     <div class="form-group">
-        <input type="submit" value="Bet" class="btn btn-success">
+        <input type="submit" value="Bet" class="btn btn-dark">
     </div>
 </form>
 

@@ -1,73 +1,74 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body id="game-page">
 
 <nav>
 
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/rules" target="_blank">Rules</a></li>
-        <li class="nav-item"><a class="nav-link" th:href="'/play/profile?userId=' + ${userId}">Profile</a></li>
-        <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
+        <li class="nav-item"><a class="btn btn-light" href="/rules" target="_blank">Rules</a></li>
+        <li class="nav-item"><a class="btn btn-light" th:href="'/play/profile?userId=' + ${userId}">Profile</a></li>
+        <li class="nav-item"><a class="btn btn-light" href="/logout">Log out</a></li>
     </ul>
-    <h1>Your Turn</h1>
-</nav>
 
+</nav>
+<h1>Your Turn</h1>
 <!--<p th:text="'You have picked ' + ${level} + ' gameplay and you have bet $' + ${tempBet} + '!'"></p>-->
 <p>The dealer's hand consists of two cards, but you can only see one:</p>
-<p th:text="${dealerHandFirstCard}"></p><br>
-<img th:if='${dealerHandFirstCard.equals("Ace of Clubs")}' th:src="@{/images/ace-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("2 of Clubs")}' th:src="@{/images/two-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("3 of Clubs")}' th:src="@{/images/three-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("4 of Clubs")}' th:src="@{/images/four-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("5 of Clubs")}' th:src="@{/images/five-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("6 of Clubs")}' th:src="@{/images/six-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("7 of Clubs")}' th:src="@{/images/seven-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("8 of Clubs")}' th:src="@{/images/eight-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("9 of Clubs")}' th:src="@{/images/nine-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("10 of Clubs")}' th:src="@{/images/ten-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Jack of Clubs")}' th:src="@{/images/jack-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Queen of Clubs")}' th:src="@{/images/queen-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("King of Clubs")}' th:src="@{/images/king-of-clubs.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Ace of Diamonds")}' th:src="@{/images/ace-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("2 of Diamonds")}' th:src="@{/images/two-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("3 of Diamonds")}' th:src="@{/images/three-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("4 of Diamonds")}' th:src="@{/images/four-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("5 of Diamonds")}' th:src="@{/images/five-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("6 of Diamonds")}' th:src="@{/images/six-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("7 of Diamonds")}' th:src="@{/images/seven-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("8 of Diamonds")}' th:src="@{/images/eight-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("9 of Diamonds")}' th:src="@{/images/nine-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("10 of Diamonds")}' th:src="@{/images/ten-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Jack of Diamonds")}' th:src="@{/images/jack-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Queen of Diamonds")}' th:src="@{/images/queen-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("King of Diamonds")}' th:src="@{/images/king-of-diamonds.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Ace of Hearts")}' th:src="@{/images/ace-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("2 of Hearts")}' th:src="@{/images/two-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("3 of Hearts")}' th:src="@{/images/three-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("4 of Hearts")}' th:src="@{/images/four-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("5 of Hearts")}' th:src="@{/images/five-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("6 of Hearts")}' th:src="@{/images/six-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("7 of Hearts")}' th:src="@{/images/seven-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("8 of Hearts")}' th:src="@{/images/eight-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("9 of Hearts")}' th:src="@{/images/nine-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("10 of Hearts")}' th:src="@{/images/ten-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Jack of Hearts")}' th:src="@{/images/jack-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Queen of Hearts")}' th:src="@{/images/queen-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("King of Hearts")}' th:src="@{/images/king-of-hearts.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Ace of Spades")}' th:src="@{/images/ace-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("2 of Spades")}' th:src="@{/images/two-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("3 of Spades")}' th:src="@{/images/three-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("4 of Spades")}' th:src="@{/images/four-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("5 of Spades")}' th:src="@{/images/five-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("6 of Spades")}' th:src="@{/images/six-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("7 of Spades")}' th:src="@{/images/seven-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("8 of Spades")}' th:src="@{/images/eight-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("9 of Spades")}' th:src="@{/images/nine-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("10 of Spades")}' th:src="@{/images/ten-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Jack of Spades")}' th:src="@{/images/jack-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("Queen of Spades")}' th:src="@{/images/queen-of-spades.png}"/>
-<img th:if='${dealerHandFirstCard.equals("King of Spades")}' th:src="@{/images/king-of-spades.png}"/>
+<p class="card-hand" th:text="${dealerHandFirstCard}"></p><br>
+<img id="back-of-card" th:src="@{/images/back-of-card.jpg}" alt="Unturned dealer's card"/>
+<img th:if='${dealerHandFirstCard.equals("Ace of Clubs")}' th:src="@{/images/ace-of-clubs.png}" alt="Ace of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("2 of Clubs")}' th:src="@{/images/two-of-clubs.png}" alt="2 of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("3 of Clubs")}' th:src="@{/images/three-of-clubs.png}" alt="3 of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("4 of Clubs")}' th:src="@{/images/four-of-clubs.png}" alt="4 of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("5 of Clubs")}' th:src="@{/images/five-of-clubs.png}" alt="5 of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("6 of Clubs")}' th:src="@{/images/six-of-clubs.png}" alt="6 of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("7 of Clubs")}' th:src="@{/images/seven-of-clubs.png}" alt="7 of Clubs" />
+<img th:if='${dealerHandFirstCard.equals("8 of Clubs")}' th:src="@{/images/eight-of-clubs.png}" alt="8 of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("9 of Clubs")}' th:src="@{/images/nine-of-clubs.png}" alt="9 of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("10 of Clubs")}' th:src="@{/images/ten-of-clubs.png}" alt="10 of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("Jack of Clubs")}' th:src="@{/images/jack-of-clubs.png}" alt="Jack of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("Queen of Clubs")}' th:src="@{/images/queen-of-clubs.png}" alt="Queen of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("King of Clubs")}' th:src="@{/images/king-of-clubs.png}" alt="King of Clubs"/>
+<img th:if='${dealerHandFirstCard.equals("Ace of Diamonds")}' th:src="@{/images/ace-of-diamonds.png}" alt="Ace of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("2 of Diamonds")}' th:src="@{/images/two-of-diamonds.png}" alt="2 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("3 of Diamonds")}' th:src="@{/images/three-of-diamonds.png}" alt="3 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("4 of Diamonds")}' th:src="@{/images/four-of-diamonds.png}" alt="4 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("5 of Diamonds")}' th:src="@{/images/five-of-diamonds.png}" alt="5 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("6 of Diamonds")}' th:src="@{/images/six-of-diamonds.png}" alt="6 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("7 of Diamonds")}' th:src="@{/images/seven-of-diamonds.png}" alt="7 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("8 of Diamonds")}' th:src="@{/images/eight-of-diamonds.png}" alt="8 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("9 of Diamonds")}' th:src="@{/images/nine-of-diamonds.png}" alt="9 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("10 of Diamonds")}' th:src="@{/images/ten-of-diamonds.png}" alt="10 of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("Jack of Diamonds")}' th:src="@{/images/jack-of-diamonds.png}" alt="Jack of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("Queen of Diamonds")}' th:src="@{/images/queen-of-diamonds.png}" alt="Queen of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("King of Diamonds")}' th:src="@{/images/king-of-diamonds.png}" alt="King of Diamonds"/>
+<img th:if='${dealerHandFirstCard.equals("Ace of Hearts")}' th:src="@{/images/ace-of-hearts.png}" alt="Ace of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("2 of Hearts")}' th:src="@{/images/two-of-hearts.png}" alt="2 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("3 of Hearts")}' th:src="@{/images/three-of-hearts.png}" alt="3 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("4 of Hearts")}' th:src="@{/images/four-of-hearts.png}" alt="4 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("5 of Hearts")}' th:src="@{/images/five-of-hearts.png}" alt="5 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("6 of Hearts")}' th:src="@{/images/six-of-hearts.png}" alt="6 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("7 of Hearts")}' th:src="@{/images/seven-of-hearts.png}" alt="7 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("8 of Hearts")}' th:src="@{/images/eight-of-hearts.png}" alt="8 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("9 of Hearts")}' th:src="@{/images/nine-of-hearts.png}" alt="9 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("10 of Hearts")}' th:src="@{/images/ten-of-hearts.png}" alt="10 of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("Jack of Hearts")}' th:src="@{/images/jack-of-hearts.png}" alt="Jack of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("Queen of Hearts")}' th:src="@{/images/queen-of-hearts.png}" alt="Queen of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("King of Hearts")}' th:src="@{/images/king-of-hearts.png}" alt="King of Hearts"/>
+<img th:if='${dealerHandFirstCard.equals("Ace of Spades")}' th:src="@{/images/ace-of-spades.png}" alt="Ace of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("2 of Spades")}' th:src="@{/images/two-of-spades.png}" alt="2 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("3 of Spades")}' th:src="@{/images/three-of-spades.png}" alt="3 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("4 of Spades")}' th:src="@{/images/four-of-spades.png}" alt="4 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("5 of Spades")}' th:src="@{/images/five-of-spades.png}" alt="5 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("6 of Spades")}' th:src="@{/images/six-of-spades.png}" alt="6 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("7 of Spades")}' th:src="@{/images/seven-of-spades.png}" alt="7 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("8 of Spades")}' th:src="@{/images/eight-of-spades.png}" alt="8 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("9 of Spades")}' th:src="@{/images/nine-of-spades.png}" alt="9 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("10 of Spades")}' th:src="@{/images/ten-of-spades.png}" alt="10 of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("Jack of Spades")}' th:src="@{/images/jack-of-spades.png}" alt="Jack of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("Queen of Spades")}' th:src="@{/images/queen-of-spades.png}" alt="Queen of Spades"/>
+<img th:if='${dealerHandFirstCard.equals("King of Spades")}' th:src="@{/images/king-of-spades.png}" alt="King of Spades"/>
 <p th:text="'Hand value: ' + ${dealerHandValue}"></p>
 
 
@@ -75,59 +76,59 @@
         <table>
             <tr>
                 <th:block th:each="card : ${playerHand}">
-                    <td th:text="${card} + '&nbsp;&nbsp;'"></td>
-                        <img th:if='${card.equals("Ace of Clubs")}' th:src="@{/images/ace-of-clubs.png}"/>
-                        <img th:if='${card.equals("2 of Clubs")}' th:src="@{/images/two-of-clubs.png}"/>
-                        <img th:if='${card.equals("3 of Clubs")}' th:src="@{/images/three-of-clubs.png}"/>
-                        <img th:if='${card.equals("4 of Clubs")}' th:src="@{/images/four-of-clubs.png}"/>
-                        <img th:if='${card.equals("5 of Clubs")}' th:src="@{/images/five-of-clubs.png}"/>
-                        <img th:if='${card.equals("6 of Clubs")}' th:src="@{/images/six-of-clubs.png}"/>
-                        <img th:if='${card.equals("7 of Clubs")}' th:src="@{/images/seven-of-clubs.png}"/>
-                        <img th:if='${card.equals("8 of Clubs")}' th:src="@{/images/eight-of-clubs.png}"/>
-                        <img th:if='${card.equals("9 of Clubs")}' th:src="@{/images/nine-of-clubs.png}"/>
-                        <img th:if='${card.equals("10 of Clubs")}' th:src="@{/images/ten-of-clubs.png}"/>
-                        <img th:if='${card.equals("Jack of Clubs")}' th:src="@{/images/jack-of-clubs.png}"/>
-                        <img th:if='${card.equals("Queen of Clubs")}' th:src="@{/images/queen-of-clubs.png}"/>
-                        <img th:if='${card.equals("King of Clubs")}' th:src="@{/images/king-of-clubs.png}"/>
-                        <img th:if='${card.equals("Ace of Diamonds")}' th:src="@{/images/ace-of-diamonds.png}"/>
-                        <img th:if='${card.equals("2 of Diamonds")}' th:src="@{/images/two-of-diamonds.png}"/>
-                        <img th:if='${card.equals("3 of Diamonds")}' th:src="@{/images/three-of-diamonds.png}"/>
-                        <img th:if='${card.equals("4 of Diamonds")}' th:src="@{/images/four-of-diamonds.png}"/>
-                        <img th:if='${card.equals("5 of Diamonds")}' th:src="@{/images/five-of-diamonds.png}"/>
-                        <img th:if='${card.equals("6 of Diamonds")}' th:src="@{/images/six-of-diamonds.png}"/>
-                        <img th:if='${card.equals("7 of Diamonds")}' th:src="@{/images/seven-of-diamonds.png}"/>
-                        <img th:if='${card.equals("8 of Diamonds")}' th:src="@{/images/eight-of-diamonds.png}"/>
-                        <img th:if='${card.equals("9 of Diamonds")}' th:src="@{/images/nine-of-diamonds.png}"/>
-                        <img th:if='${card.equals("10 of Diamonds")}' th:src="@{/images/ten-of-diamonds.png}"/>
-                        <img th:if='${card.equals("Jack of Diamonds")}' th:src="@{/images/jack-of-diamonds.png}"/>
-                        <img th:if='${card.equals("Queen of Diamonds")}' th:src="@{/images/queen-of-diamonds.png}"/>
-                        <img th:if='${card.equals("King of Diamonds")}' th:src="@{/images/king-of-diamonds.png}"/>
-                        <img th:if='${card.equals("Ace of Hearts")}' th:src="@{/images/ace-of-hearts.png}"/>
-                        <img th:if='${card.equals("2 of Hearts")}' th:src="@{/images/two-of-hearts.png}"/>
-                        <img th:if='${card.equals("3 of Hearts")}' th:src="@{/images/three-of-hearts.png}"/>
-                        <img th:if='${card.equals("4 of Hearts")}' th:src="@{/images/four-of-hearts.png}"/>
-                        <img th:if='${card.equals("5 of Hearts")}' th:src="@{/images/five-of-hearts.png}"/>
-                        <img th:if='${card.equals("6 of Hearts")}' th:src="@{/images/six-of-hearts.png}"/>
-                        <img th:if='${card.equals("7 of Hearts")}' th:src="@{/images/seven-of-hearts.png}"/>
-                        <img th:if='${card.equals("8 of Hearts")}' th:src="@{/images/eight-of-hearts.png}"/>
-                        <img th:if='${card.equals("9 of Hearts")}' th:src="@{/images/nine-of-hearts.png}"/>
-                        <img th:if='${card.equals("10 of Hearts")}' th:src="@{/images/ten-of-hearts.png}"/>
-                        <img th:if='${card.equals("Jack of Hearts")}' th:src="@{/images/jack-of-hearts.png}"/>
-                        <img th:if='${card.equals("Queen of Hearts")}' th:src="@{/images/queen-of-hearts.png}"/>
-                        <img th:if='${card.equals("King of Hearts")}' th:src="@{/images/king-of-hearts.png}"/>
-                        <img th:if='${card.equals("Ace of Spades")}' th:src="@{/images/ace-of-spades.png}"/>
-                        <img th:if='${card.equals("2 of Spades")}' th:src="@{/images/two-of-spades.png}"/>
-                        <img th:if='${card.equals("3 of Spades")}' th:src="@{/images/three-of-spades.png}"/>
-                        <img th:if='${card.equals("4 of Spades")}' th:src="@{/images/four-of-spades.png}"/>
-                        <img th:if='${card.equals("5 of Spades")}' th:src="@{/images/five-of-spades.png}"/>
-                        <img th:if='${card.equals("6 of Spades")}' th:src="@{/images/six-of-spades.png}"/>
-                        <img th:if='${card.equals("7 of Spades")}' th:src="@{/images/seven-of-spades.png}"/>
-                        <img th:if='${card.equals("8 of Spades")}' th:src="@{/images/eight-of-spades.png}"/>
-                        <img th:if='${card.equals("9 of Spades")}' th:src="@{/images/nine-of-spades.png}"/>
-                        <img th:if='${card.equals("10 of Spades")}' th:src="@{/images/ten-of-spades.png}"/>
-                        <img th:if='${card.equals("Jack of Spades")}' th:src="@{/images/jack-of-spades.png}"/>
-                        <img th:if='${card.equals("Queen of Spades")}' th:src="@{/images/queen-of-spades.png}"/>
-                        <img th:if='${card.equals("King of Spades")}' th:src="@{/images/king-of-spades.png}"/>
+                    <td class="card-hand" th:text="${card} + '&nbsp;&nbsp;'"></td>
+                    <img th:if='${card.equals("Ace of Clubs")}' th:src="@{/images/ace-of-clubs.png}" alt="Ace of Clubs"/>
+                    <img th:if='${card.equals("2 of Clubs")}' th:src="@{/images/two-of-clubs.png}" alt="2 of Clubs"/>
+                    <img th:if='${card.equals("3 of Clubs")}' th:src="@{/images/three-of-clubs.png}" alt="3 of Clubs"/>
+                    <img th:if='${card.equals("4 of Clubs")}' th:src="@{/images/four-of-clubs.png}" alt="4 of Clubs"/>
+                    <img th:if='${card.equals("5 of Clubs")}' th:src="@{/images/five-of-clubs.png}" alt="5 of Clubs"/>
+                    <img th:if='${card.equals("6 of Clubs")}' th:src="@{/images/six-of-clubs.png}" alt="6 of Clubs"/>
+                    <img th:if='${card.equals("7 of Clubs")}' th:src="@{/images/seven-of-clubs.png}" alt="7 of Clubs" />
+                    <img th:if='${card.equals("8 of Clubs")}' th:src="@{/images/eight-of-clubs.png}" alt="8 of Clubs"/>
+                    <img th:if='${card.equals("9 of Clubs")}' th:src="@{/images/nine-of-clubs.png}" alt="9 of Clubs"/>
+                    <img th:if='${card.equals("10 of Clubs")}' th:src="@{/images/ten-of-clubs.png}" alt="10 of Clubs"/>
+                    <img th:if='${card.equals("Jack of Clubs")}' th:src="@{/images/jack-of-clubs.png}" alt="Jack of Clubs"/>
+                    <img th:if='${card.equals("Queen of Clubs")}' th:src="@{/images/queen-of-clubs.png}" alt="Queen of Clubs"/>
+                    <img th:if='${card.equals("King of Clubs")}' th:src="@{/images/king-of-clubs.png}" alt="King of Clubs"/>
+                    <img th:if='${card.equals("Ace of Diamonds")}' th:src="@{/images/ace-of-diamonds.png}" alt="Ace of Diamonds"/>
+                    <img th:if='${card.equals("2 of Diamonds")}' th:src="@{/images/two-of-diamonds.png}" alt="2 of Diamonds"/>
+                    <img th:if='${card.equals("3 of Diamonds")}' th:src="@{/images/three-of-diamonds.png}" alt="3 of Diamonds"/>
+                    <img th:if='${card.equals("4 of Diamonds")}' th:src="@{/images/four-of-diamonds.png}" alt="4 of Diamonds"/>
+                    <img th:if='${card.equals("5 of Diamonds")}' th:src="@{/images/five-of-diamonds.png}" alt="5 of Diamonds"/>
+                    <img th:if='${card.equals("6 of Diamonds")}' th:src="@{/images/six-of-diamonds.png}" alt="6 of Diamonds"/>
+                    <img th:if='${card.equals("7 of Diamonds")}' th:src="@{/images/seven-of-diamonds.png}" alt="7 of Diamonds"/>
+                    <img th:if='${card.equals("8 of Diamonds")}' th:src="@{/images/eight-of-diamonds.png}" alt="8 of Diamonds"/>
+                    <img th:if='${card.equals("9 of Diamonds")}' th:src="@{/images/nine-of-diamonds.png}" alt="9 of Diamonds"/>
+                    <img th:if='${card.equals("10 of Diamonds")}' th:src="@{/images/ten-of-diamonds.png}" alt="10 of Diamonds"/>
+                    <img th:if='${card.equals("Jack of Diamonds")}' th:src="@{/images/jack-of-diamonds.png}" alt="Jack of Diamonds"/>
+                    <img th:if='${card.equals("Queen of Diamonds")}' th:src="@{/images/queen-of-diamonds.png}" alt="Queen of Diamonds"/>
+                    <img th:if='${card.equals("King of Diamonds")}' th:src="@{/images/king-of-diamonds.png}" alt="King of Diamonds"/>
+                    <img th:if='${card.equals("Ace of Hearts")}' th:src="@{/images/ace-of-hearts.png}" alt="Ace of Hearts"/>
+                    <img th:if='${card.equals("2 of Hearts")}' th:src="@{/images/two-of-hearts.png}" alt="2 of Hearts"/>
+                    <img th:if='${card.equals("3 of Hearts")}' th:src="@{/images/three-of-hearts.png}" alt="3 of Hearts"/>
+                    <img th:if='${card.equals("4 of Hearts")}' th:src="@{/images/four-of-hearts.png}" alt="4 of Hearts"/>
+                    <img th:if='${card.equals("5 of Hearts")}' th:src="@{/images/five-of-hearts.png}" alt="5 of Hearts"/>
+                    <img th:if='${card.equals("6 of Hearts")}' th:src="@{/images/six-of-hearts.png}" alt="6 of Hearts"/>
+                    <img th:if='${card.equals("7 of Hearts")}' th:src="@{/images/seven-of-hearts.png}" alt="7 of Hearts"/>
+                    <img th:if='${card.equals("8 of Hearts")}' th:src="@{/images/eight-of-hearts.png}" alt="8 of Hearts"/>
+                    <img th:if='${card.equals("9 of Hearts")}' th:src="@{/images/nine-of-hearts.png}" alt="9 of Hearts"/>
+                    <img th:if='${card.equals("10 of Hearts")}' th:src="@{/images/ten-of-hearts.png}" alt="10 of Hearts"/>
+                    <img th:if='${card.equals("Jack of Hearts")}' th:src="@{/images/jack-of-hearts.png}" alt="Jack of Hearts"/>
+                    <img th:if='${card.equals("Queen of Hearts")}' th:src="@{/images/queen-of-hearts.png}" alt="Queen of Hearts"/>
+                    <img th:if='${card.equals("King of Hearts")}' th:src="@{/images/king-of-hearts.png}" alt="King of Hearts"/>
+                    <img th:if='${card.equals("Ace of Spades")}' th:src="@{/images/ace-of-spades.png}" alt="Ace of Spades"/>
+                    <img th:if='${card.equals("2 of Spades")}' th:src="@{/images/two-of-spades.png}" alt="2 of Spades"/>
+                    <img th:if='${card.equals("3 of Spades")}' th:src="@{/images/three-of-spades.png}" alt="3 of Spades"/>
+                    <img th:if='${card.equals("4 of Spades")}' th:src="@{/images/four-of-spades.png}" alt="4 of Spades"/>
+                    <img th:if='${card.equals("5 of Spades")}' th:src="@{/images/five-of-spades.png}" alt="5 of Spades"/>
+                    <img th:if='${card.equals("6 of Spades")}' th:src="@{/images/six-of-spades.png}" alt="6 of Spades"/>
+                    <img th:if='${card.equals("7 of Spades")}' th:src="@{/images/seven-of-spades.png}" alt="7 of Spades"/>
+                    <img th:if='${card.equals("8 of Spades")}' th:src="@{/images/eight-of-spades.png}" alt="8 of Spades"/>
+                    <img th:if='${card.equals("9 of Spades")}' th:src="@{/images/nine-of-spades.png}" alt="9 of Spades"/>
+                    <img th:if='${card.equals("10 of Spades")}' th:src="@{/images/ten-of-spades.png}" alt="10 of Spades"/>
+                    <img th:if='${card.equals("Jack of Spades")}' th:src="@{/images/jack-of-spades.png}" alt="Jack of Spades"/>
+                    <img th:if='${card.equals("Queen of Spades")}' th:src="@{/images/queen-of-spades.png}" alt="Queen of Spades"/>
+                    <img th:if='${card.equals("King of Spades")}' th:src="@{/images/king-of-spades.png}" alt="King of Spades"/>
                     </td>
                 </th:block>
             </tr>
@@ -135,7 +136,7 @@
 <br>
 <p th:text="'Hand value: ' + ${playerHandValue}"></p>
 <form method="post">
-    <div class="form-group">
+    <div>
         <label>Hit
             <input required checked type="radio" name="choice" value="hit">
         </label>
@@ -145,10 +146,10 @@
         </label>
     </div>
     <div class="form-group" th:if="${playerHandValue < 21}">
-        <input type="submit" value="Play" class="btn btn-success">
+        <input type="submit" value="Play" class="btn btn-info btn-lg">
     </div>
     <div class="form-group" th:if="${playerHandValue >= 21}">
-        <input type="submit" value="End turn" class="btn btn-success">
+        <input type="submit" value="End turn" class="btn btn-info btn-lg">
     </div>
     <p th:text="${errorMessage}"></p>
 </form>

@@ -24,8 +24,8 @@ public class PlayController {
     private Integer userId;
 
     private static Deck deck = new Deck();
-    private static int tempBet;
-    private static String level;
+    private static int tempBet = 0;
+    private static String level = "";
     private static Hand playerHand = new Hand();
     private static Hand dealerHand = new Hand();
     private static boolean isNewGame = true;
@@ -42,7 +42,7 @@ public class PlayController {
             model.addAttribute("remainingPoints", remainingPoints);
         }
         model.addAttribute("userMoney", user.getMoney());
-        return "profile";
+        return "/play/profile";
     }
 
     @GetMapping
@@ -92,9 +92,15 @@ public class PlayController {
             if (playerWin(playerHand.blackjackHandValue(), dealerHand.blackjackHandValue())) {
                 model.addAttribute("message", "Congratulations, you win!");
                 user.setMoney(user.getMoney() + tempBet);
+                if (level.equals("medium")) {
+                    tempBet *= 2;
+                }
+                if (level.equals("hard")) {
+                    tempBet *= 3;
+                }
                 user.setTotalMoneyEarned(user.getTotalMoneyEarned() + tempBet);
                 userRepository.save(user);
-                String moneyMessage = "You now have $" + user.getMoney();
+                String moneyMessage = "You now have $" + user.getMoney() + ", and you have earned " + tempBet + " points to your next level!";
                 model.addAttribute("moneyMessage", moneyMessage);
                 model.addAttribute("winOrLoseMessage", "Congratulations!");
             }
@@ -170,6 +176,15 @@ public class PlayController {
         User user = result.get();
         model.addAttribute("userMoney", user.getMoney());
         model.addAttribute("userId", user.getId());
+        if (tempBet > user.getMoney()) {
+            model.addAttribute("error", "You don\'t have enough money for that!");
+        }
+        else if (level.equals("medium") && tempBet < 100) {
+            model.addAttribute("error", "Minimum bet for medium is $100");
+        }
+        else if (level.equals("hard") && tempBet < 200) {
+            model.addAttribute("error", "Minimum bet for hard is $200");
+        }
         return "play/select";
     }
 
@@ -177,21 +192,18 @@ public class PlayController {
     public String processLevelAndBetSelect(Model model, @RequestParam int tempBet, @RequestParam String level) {
         Optional<User> result = userRepository.findById(userId);
         User user = result.get();
+        this.tempBet = tempBet;
+        this.level = level;
         if (tempBet > user.getMoney()) {
-            model.addAttribute("error", "You don\'t have enough money for that!");
             return "redirect:/play/select";
         }
         else if (level.equals("medium") && tempBet < 100) {
-            model.addAttribute("error", "Minimum bet for medium is $100");
             return "redirect:/play/select";
         }
         else if (level.equals("hard") && tempBet < 200) {
-            model.addAttribute("error", "Minimum bet for hard is $200");
             return "redirect:/play/select";
         }
         else {
-            this.tempBet = tempBet;
-            this.level = level;
             model.addAttribute("userId", user.getId());
             return "redirect:";
         }

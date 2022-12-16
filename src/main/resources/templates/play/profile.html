@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body id="profile-page" class="container">
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <ul class="nav">
+            <li class="nav-item"><a class="btn btn-outline-dark" href="/rules" target="_blank">Rules</a></li>
+            <li class="nav-item"><a class="btn btn-outline-dark" href="/logout">Log out</a></li>
+        </ul>
+
+
+</nav>
+<h1 th:text="${title}">Blackjack</h1>
+<p th:text="'Your level is ' + ${user.level}"></p>
+<p th:text="'You have ' + ${remainingPoints} + ' points until the next level'"></p>
+<p th:text="'You have $' + ${userMoney}"></p>
+<br>
+<br>
+<a class="btn btn-dark btn-lg" href="/play/select">Play game</a>
+
+</body>
+</html>

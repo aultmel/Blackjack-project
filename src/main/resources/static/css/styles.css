@@ -1,0 +1,72 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+.rules-p {
+    text-align: center;
+    margin: 10px 50px auto;
+    padding: 10px 200px;
+}
+
+h4 {
+    text-align: center;
+}
+
+#rules-heading {
+    text-align: center;
+    margin: 40px;
+}
+
+.card-hand {
+    color: green;
+}
+
+#rules-page {
+    background: greenyellow;
+}
+
+#login-page {
+    background: palegreen;
+}
+
+#profile-page {
+    background: springgreen;
+}
+
+#play-select-page {
+    background: mediumspringgreen;
+}
+
+#freeplay-page {
+    background: green;
+    color: white;
+}
+
+#game-page {
+    background: green;
+    color: white;
+}
+
+#play-dealer-page {
+    background: green;
+    color: white;
+}
+
+#free-dealer-page {
+    background: green;
+    color: white;
+}
+
+#free-select-page {
+    background: mediumspringgreen;
+}
+
+#register-page {
+    background: lawngreen;
+}
+
+#back-of-card {
+    height: 312px;
+    width: 224px;
+}
