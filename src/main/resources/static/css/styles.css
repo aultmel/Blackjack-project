@@ -19,7 +19,7 @@ h4 {
 }
 
 .card-hand {
-    color: green;
+    color: forestgreen;
 }
 
 #rules-page {
@@ -39,22 +39,22 @@ h4 {
 }
 
 #freeplay-page {
-    background: green;
+    background: forestgreen;
     color: white;
 }
 
 #game-page {
-    background: green;
+    background: forestgreen;
     color: white;
 }
 
 #play-dealer-page {
-    background: green;
+    background: forestgreen;
     color: white;
 }
 
 #free-dealer-page {
-    background: green;
+    background: forestgreen;
     color: white;
 }
 
